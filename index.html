@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DES Simulation</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#home" onclick="showSection('home')">Home</a></li>
+        <li>
+          <a href="#simulation" onclick="showSection('simulation')"
+            >Simulation</a
+          >
+        </li>
+        <li><a href="#about" onclick="showSection('about')">About</a></li>
+      </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="content-section active">
+      <div class="container">
+        <div class="info-card">
+          <h2>Discrete Event Simulation</h2>
+          <p>
+            Discrete Event Simulation (DES) is a methodology used to model the
+            operation of complex systems as a discrete sequence of events in
+            time...
+          </p>
+          <button onclick="showSection('simulation')" class="start-btn">
+            Start Simulation
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulation Section -->
+    <section id="simulation" class="content-section">
+      <div class="container">
+        <h1>✈️ Airline Ticket Counter Simulation</h1>
+
+        <div class="input-section">
+          <div class="grid">
+            <div>
+              <label for="agents">Number of Agents</label>
+              <input type="number" id="agents" min="1" value="3" />
+            </div>
+            <div>
+              <label for="arrivals">Arrival Times (comma-separated)</label>
+              <input type="text" id="arrivals" placeholder="e.g., 0,5,10,15" />
+            </div>
+          </div>
+          <button onclick="runSimulation()">Start Simulation</button>
+        </div>
+
+        <div class="results">
+          <div class="grid">
+            <div class="stats-card">
+              <h2>📊 Statistics</h2>
+              <div id="stats"></div>
+            </div>
+            <div class="log-card">
+              <h2>📝 Simulation Log</h2>
+              <div class="simulation-log" id="log"></div>
+            </div>
+          </div>
+
+          <div class="chart-container">
+            <canvas id="waitTimeChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="content-section">
+      <div class="container">
+        <h1>GROUP 7A</h1>
+        <div class="about-content">
+          <img
+            src="img/group.jpg"
+            alt="Project Screenshot"
+            class="project-image"
+          />
+          <!-- Challenge & Experience Section -->
+          <div class="journey-container">
+            <div class="challenge-box">
+              <h3>🚧 Key Challenge</h3>
+              <p>
+                We initially misunderstood the problem as being about priority
+                queues. After re-reading, we realized it was a general
+                simulation needing time-ordered events. This taught us to
+                double-check requirements carefully.
+              </p>
+            </div>
+            <div class="experience-box">
+              <h3>📈 Learning Experience</h3>
+              <p>
+                We presented our solution confidently on Feb 10, 2025. Through
+                this project, we learned to:
+              </p>
+              <ul>
+                <li>Break complex problems into smaller steps</li>
+                <li>Work with JavaScript's event handling</li>
+                <li>Create clear visualizations</li>
+                <li>Collaborate effectively as a team</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Team Cards -->
+        <div class="team-grid">
+          <!-- Alzoha -->
+          <div class="member-card">
+            <img src="img/alzoha.jpg" alt="Alzoha" class="member-photo" />
+            <div class="member-info">
+              <h4>Workflow Architecture</h4>
+              <p>
+                Designed core system interactions and execution flow patterns
+              </p>
+              <div class="member-name">- Alzoha</div>
+            </div>
+          </div>
+
+          <!-- Ayesha -->
+          <div class="member-card">
+            <img src="img/ayesha.jpg" alt="Ayesha" class="member-photo" />
+            <div class="member-info">
+              <h4>Problem Analysis & Flow Design</h4>
+              <p>
+                Led the team in understanding requirements and created
+                step-by-step simulation plans.
+              </p>
+              <div class="member-name">- Ayesha</div>
+            </div>
+          </div>
+
+          <!-- Imaan -->
+          <div class="member-card">
+            <img src="img/imaan.jpg" alt="Imaan" class="member-photo" />
+            <div class="member-info">
+              <h4>Future Improvements</h4>
+              <p>
+                Researched ways to make the simulation faster and more detailed.
+              </p>
+              <div class="member-name">- Imaan</div>
+            </div>
+          </div>
+
+          <!-- Iraj -->
+          <div class="member-card">
+            <img src="img/iraj.jpg" alt="Iraj" class="member-photo" />
+            <div class="member-info">
+              <h4>System Boundaries</h4>
+              <p>
+                Defined what parts we would build vs what the browser handles
+                automatically.
+              </p>
+              <div class="member-name">- Iraj</div>
+            </div>
+          </div>
+
+          <!-- Mab -->
+          <div class="member-card">
+            <img src="img/mab.jpg" alt="Mab" class="member-photo" />
+            <div class="member-info">
+              <h4>Tech Comparison Analysis</h4>
+              <p>
+                Researched Flask vs. frontend-only approaches for better
+                scalability
+              </p>
+              <div class="member-name">- Mab</div>
+            </div>
+          </div>
+
+          <!-- Mariam -->
+          <div class="member-card">
+            <img src="img/mariam.jpg" alt="Mariam" class="member-photo" />
+            <div class="member-info">
+              <h4>Alternative Solutions</h4>
+              <p>
+                Explored smart computer methods (AI) to predict wait times
+                differently.
+              </p>
+              <div class="member-name">- Mariam</div>
+            </div>
+          </div>
+
+          <!-- Shamaim -->
+          <div class="member-card">
+            <img src="img/shamaim.jpg" alt="Shamaim" class="member-photo" />
+            <div class="member-info">
+              <h4>System Design Strategy</h4>
+              <p>
+                Created UML diagrams to plan system structure before coding
+                began
+              </p>
+              <div class="member-name">- Shamaim</div>
+            </div>
+          </div>
+
+          <!-- Zehra -->
+          <div class="member-card">
+            <img src="img/zehra.jpg" alt="Zehra" class="member-photo" />
+            <div class="member-info">
+              <h4>Core Code Implementation</h4>
+              <p>Built the main event system and queue management code.</p>
+              <div class="member-name">- Zehra</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
